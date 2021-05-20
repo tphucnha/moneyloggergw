@@ -43,7 +43,7 @@
     "clientPackageManager": "npm",
     "languages": ["vi", "en"],
     "entities": ["Category", "Transaction"],
-    "herokuAppName": "tpngateway",
+    "herokuAppName": "mnlogger",
     "herokuDeployType": "git",
     "herokuJavaVersion": "11"
   }

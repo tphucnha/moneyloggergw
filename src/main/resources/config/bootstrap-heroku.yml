@@ -7,4 +7,3 @@ spring:
     config:
       fail-fast: true
       uri: ${JHIPSTER_REGISTRY_URL}/config
-      enabled: false
