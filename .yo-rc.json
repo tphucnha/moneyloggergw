@@ -42,6 +42,9 @@
     "jwtSecretKey": "YTNmMmYxZTJiMzBiMzA5NTU5ODlkMzdiNDA2MGE2ZWRjMjU2YTlkYzM1NzZmYzc2YWViMzk0ZTRkOTU4MTk4NjRmYzNlODg2YTkyZTBiYmZiMjU3ZmY1MTRlZTYwMzlkYTA4ZmMwZDY2YWZiMWM4ZWVhMjAxOTczYjJiM2NhNjY=",
     "clientPackageManager": "npm",
     "languages": ["vi", "en"],
-    "entities": ["Category", "Transaction"]
+    "entities": ["Category", "Transaction"],
+    "herokuAppName": "tpngateway",
+    "herokuDeployType": "git",
+    "herokuJavaVersion": "11"
   }
 }
