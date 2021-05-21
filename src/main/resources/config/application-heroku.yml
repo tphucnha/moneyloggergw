@@ -24,8 +24,10 @@ spring:
     hikari:
       maximumPoolSize: 8
   r2dbc:
-    url: r2dbc:${DATABASE_URL}?sslmode=require
+    url: r2dbc:${DATABASE_URL}
     username: ${JDBC_DATABASE_USERNAME}
     password: ${JDBC_DATABASE_PASSWORD}
+    properties:
+      sslMode: REQUIRE
 server:
   port: ${PORT:8080}
