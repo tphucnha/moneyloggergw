@@ -27,7 +27,7 @@
         <dt><span jhiTranslate="moneyloggergwApp.moneyloggerTransaction.category">Category</span></dt>
         <dd>
           <div *ngIf="transaction.category">
-            <a [routerLink]="['/category', transaction.category?.id, 'view']">{{ transaction.category?.id }}</a>
+            <a [routerLink]="['/category', transaction.category?.id, 'view']">{{ transaction.category?.name }}</a>
           </div>
         </dd>
       </dl>

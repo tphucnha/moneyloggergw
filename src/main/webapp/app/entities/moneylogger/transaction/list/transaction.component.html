@@ -54,7 +54,7 @@
           <td>{{ transaction.details }}</td>
           <td>
             <div *ngIf="transaction.category">
-              <a [routerLink]="['/category', transaction.category?.id, 'view']">{{ transaction.category?.id }}</a>
+              <a [routerLink]="['/category', transaction.category?.id, 'view']">{{ transaction.category?.name }}</a>
             </div>
           </td>
           <td class="text-right">
