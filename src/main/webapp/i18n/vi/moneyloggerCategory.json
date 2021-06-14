@@ -15,7 +15,8 @@
         "title": "Category"
       },
       "id": "ID",
-      "name": "Name"
+      "name": "Name",
+      "transaction": "Transaction"
     }
   },
   "moneyloggerApp": {

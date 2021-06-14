@@ -24,6 +24,10 @@
         <dd>
           <span>{{ transaction.details }}</span>
         </dd>
+        <dt><span jhiTranslate="moneyloggergwApp.moneyloggerTransaction.date">Date</span></dt>
+        <dd>
+          <span>{{ transaction.date | formatMediumDatetime }}</span>
+        </dd>
         <dt><span jhiTranslate="moneyloggergwApp.moneyloggerTransaction.category">Category</span></dt>
         <dd>
           <div *ngIf="transaction.category">

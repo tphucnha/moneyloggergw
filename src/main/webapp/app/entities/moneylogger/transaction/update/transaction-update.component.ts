@@ -5,6 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize, map } from 'rxjs/operators';
 
+import * as dayjs from 'dayjs';
+import { DATE_TIME_FORMAT } from 'app/config/input.constants';
+
 import { ITransaction, Transaction } from '../transaction.model';
 import { TransactionService } from '../service/transaction.service';
 import { ICategory } from 'app/entities/moneylogger/category/category.model';
@@ -23,6 +26,7 @@ export class TransactionUpdateComponent implements OnInit {
     id: [],
     amount: [null, [Validators.required]],
     details: [null, [Validators.required]],
+    date: [null, [Validators.required]],
     category: [],
   });
 
@@ -35,6 +39,11 @@ export class TransactionUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ transaction }) => {
+      if (transaction.id === undefined) {
+        const today = dayjs().startOf('day');
+        transaction.date = today;
+      }
+
       this.updateForm(transaction);
 
       this.loadRelationshipsOptions();
@@ -83,6 +92,7 @@ export class TransactionUpdateComponent implements OnInit {
       id: transaction.id,
       amount: transaction.amount,
       details: transaction.details,
+      date: transaction.date ? transaction.date.format(DATE_TIME_FORMAT) : null,
       category: transaction.category,
     });
 
@@ -110,6 +120,7 @@ export class TransactionUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       amount: this.editForm.get(['amount'])!.value,
       details: this.editForm.get(['details'])!.value,
+      date: this.editForm.get(['date'])!.value ? dayjs(this.editForm.get(['date'])!.value, DATE_TIME_FORMAT) : undefined,
       category: this.editForm.get(['category'])!.value,
     };
   }

@@ -39,6 +39,9 @@
           <th scope="col" jhiSortBy="details">
             <span jhiTranslate="moneyloggergwApp.moneyloggerTransaction.details">Details</span> <fa-icon icon="sort"></fa-icon>
           </th>
+          <th scope="col" jhiSortBy="date">
+            <span jhiTranslate="moneyloggergwApp.moneyloggerTransaction.date">Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
           <th scope="col" jhiSortBy="category.id">
             <span jhiTranslate="moneyloggergwApp.moneyloggerTransaction.category">Category</span> <fa-icon icon="sort"></fa-icon>
           </th>
@@ -52,6 +55,7 @@
           </td>
           <td>{{ transaction.amount }}</td>
           <td>{{ transaction.details }}</td>
+          <td>{{ transaction.date | formatMediumDatetime }}</td>
           <td>
             <div *ngIf="transaction.category">
               <a [routerLink]="['/category', transaction.category?.id, 'view']">{{ transaction.category?.name }}</a>
