@@ -17,6 +17,7 @@
       "id": "ID",
       "amount": "Amount",
       "details": "Details",
+      "date": "Date",
       "category": "Category"
     }
   },

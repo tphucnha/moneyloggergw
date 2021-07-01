@@ -42,10 +42,10 @@ describe('Component Tests', () => {
     describe('ngOnInit', () => {
       it('Should call Category query and add missing value', () => {
         const transaction: ITransaction = { id: 456 };
-        const category: ICategory = { id: 44435 };
+        const category: ICategory = { id: 51777 };
         transaction.category = category;
 
-        const categoryCollection: ICategory[] = [{ id: 52844 }];
+        const categoryCollection: ICategory[] = [{ id: 37887 }];
         spyOn(categoryService, 'query').and.returnValue(of(new HttpResponse({ body: categoryCollection })));
         const additionalCategories = [category];
         const expectedCollection: ICategory[] = [...additionalCategories, ...categoryCollection];
@@ -61,7 +61,7 @@ describe('Component Tests', () => {
 
       it('Should update editForm', () => {
         const transaction: ITransaction = { id: 456 };
-        const category: ICategory = { id: 82822 };
+        const category: ICategory = { id: 14560 };
         transaction.category = category;
 
         activatedRoute.data = of({ transaction });
