@@ -58,7 +58,7 @@ export class TransactionUpdateComponent implements OnInit {
     this.isSaving = true;
     const transaction = this.createFromForm();
     if (transaction.id !== undefined) {
-      this.subscribeToSaveResponse(this.transactionService.update(transaction));
+      this.subscribeToSaveResponse(this.transactionService.partialUpdate(transaction));
     } else {
       this.subscribeToSaveResponse(this.transactionService.create(transaction));
     }

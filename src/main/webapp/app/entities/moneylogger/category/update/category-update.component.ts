@@ -36,7 +36,7 @@ export class CategoryUpdateComponent implements OnInit {
     this.isSaving = true;
     const category = this.createFromForm();
     if (category.id !== undefined) {
-      this.subscribeToSaveResponse(this.categoryService.update(category));
+      this.subscribeToSaveResponse(this.categoryService.partialUpdate(category));
     } else {
       this.subscribeToSaveResponse(this.categoryService.create(category));
     }
