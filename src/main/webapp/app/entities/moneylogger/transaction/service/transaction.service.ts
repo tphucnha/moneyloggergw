@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as dayjs from 'dayjs';
@@ -35,7 +35,10 @@ export class TransactionService {
   partialUpdate(transaction: ITransaction): Observable<EntityResponseType> {
     const copy = this.convertDateFromClient(transaction);
     return this.http
-      .patch<ITransaction>(`${this.resourceUrl}/${getTransactionIdentifier(transaction) as number}`, copy, { observe: 'response' })
+      .patch<ITransaction>(`${this.resourceUrl}/${getTransactionIdentifier(transaction) as number}`, copy, {
+        headers: new HttpHeaders({ 'Content-Type': 'application/merge-patch+json' }),
+        observe: 'response',
+      })
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 

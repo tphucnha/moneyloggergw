@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { isPresent } from 'app/core/util/operators';
@@ -26,6 +26,7 @@ export class CategoryService {
 
   partialUpdate(category: ICategory): Observable<EntityResponseType> {
     return this.http.patch<ICategory>(`${this.resourceUrl}/${getCategoryIdentifier(category) as number}`, category, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/merge-patch+json' }),
       observe: 'response',
     });
   }
